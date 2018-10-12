@@ -24,3 +24,15 @@
 * Recently failed tasks should come up more often, it's better that the user
   learns one task properly than practices many
 * When the user becomes good enough, start timing the rounds!
+
+## TODO
+
+* Set a good font size for Game Activity
+* Fix Game Activity text alignment (for both `TextView` and `EditText`)
+* Start keyboard automatically in the Game Activity
+* Add skip button to Game Activity
+
+### DONE
+
+* Create a Game Activity
+* Add suitable layout to the Game Activity
