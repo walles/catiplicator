@@ -27,9 +27,10 @@
 
 ## TODO
 
-* Start keyboard automatically in the Game Activity
-* Move text up when keyboard appears
-* Add skip button to Game Activity
+* Accept result when enough digits typed, no need for pressing Return
+* Add sound effects to all interactions
+* Consider adding a music score, auto-generated from the Internet?
+* Add skip button to Game Activity (counts as failing the question)
 
 ### DONE
 
@@ -37,3 +38,5 @@
 * Add suitable layout to the Game Activity
 * Set a good font size for Game Activity
 * Fix Game Activity text alignment (for both `TextView` and `EditText`)
+* Move text up when keyboard appears
+* Start keyboard automatically in the Game Activity
