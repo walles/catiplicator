@@ -27,12 +27,13 @@
 
 ## TODO
 
-* Set a good font size for Game Activity
-* Fix Game Activity text alignment (for both `TextView` and `EditText`)
 * Start keyboard automatically in the Game Activity
+* Move text up when keyboard appears
 * Add skip button to Game Activity
 
 ### DONE
 
 * Create a Game Activity
 * Add suitable layout to the Game Activity
+* Set a good font size for Game Activity
+* Fix Game Activity text alignment (for both `TextView` and `EditText`)
