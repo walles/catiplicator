@@ -27,7 +27,6 @@
 
 ## TODO
 
-* Add a level-starting screen with a start button
 * Finish the level after 10 questions
 * Add a level summary screen
 * Enable player to start a new level after the summary screen
@@ -55,3 +54,4 @@
 * Add random challenges
 * Show toast with correct or wrong
 * Accept result when enough digits typed, no need for pressing Return
+* Add a level-starting screen with a start button
