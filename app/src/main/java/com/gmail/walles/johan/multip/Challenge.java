@@ -13,6 +13,6 @@ public class Challenge {
         int b = RANDOM.nextInt(10) + 1;
 
         question = "" + a + "⋅" + b;
-        answer = "" + b;
+        answer = "" + a * b;
     }
 }

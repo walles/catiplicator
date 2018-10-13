@@ -27,11 +27,13 @@
 
 ## TODO
 
-* Show toast with correct or wrong
+* Add a level-starting screen with a start button
+* Finish the level after 10 questions
+* Add a level summary screen
+* Enable player to start a new level after the summary screen
 * Create a challenge suggester that suggests challenges based on:
   * level context (what we've used in the current round), avoid repetition
   * player context (skill level, failures)
-* Accept result when enough digits typed, no need for pressing Return
 * Add (cat inspired?) sound effects to all interactions
 * Put cat pictures as backgrounds for all screens, with text going into
   speech bubbles
@@ -51,3 +53,5 @@
 * Move text up when keyboard appears
 * Start keyboard automatically in the Game Activity
 * Add random challenges
+* Show toast with correct or wrong
+* Accept result when enough digits typed, no need for pressing Return
