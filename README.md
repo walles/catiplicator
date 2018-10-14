@@ -2,13 +2,13 @@
 
 ## Design
 
-* Welcome screen when starting
-* Each run requires the user to press a button saying: "Level N"
-* Each level consists of 10 different challenges
+* :white_check_mark: Welcome screen when starting
+* :white_check_mark: Each run requires the user to press a button saying: "Level N"
+* :white_check_mark: Each level consists of 10 different challenges
 * Challenges are picked by the app so that the player succeeds 80% of the time
-* On player faults, the app lowers the player level by 1.25
+* On player faults, the app lowers the player level by 1.00
 * On player successes, the app raises the player level by 0.25
-* Free text answers
+* :white_check_mark: Free text answers
 * On a wrong answer the player is shown an explanation
   * As an NxM grid?
   * For 5x3, show `5x1=5`, `5x2=10`, `5x3=15`, iterate the lowest number?
@@ -24,13 +24,15 @@
 * Recently failed challenges should come up more often, it's better that the user
   learns one challenge properly than practices many
 * When the user becomes good enough, start timing the rounds!
+* Everything is cat themed
 
 ## TODO
 
+* Maintain user state throughout the app
+* Add failed challenges to user state
 * Show progress bar during the level
 * Pause a bit after each completed answer to give the user time to
   understand whether they passed or failed
-* Enable player to start a new level after the summary screen
 * Create a challenge suggester that suggests challenges based on:
   * DONE: level context (what we've used in the current round), avoid repetition
   * player context (skill level, failures)
@@ -60,3 +62,4 @@
 * Add a level-starting screen with a start button
 * Finish the level after 10 questions
 * Add a level summary screen
+* Enable player to start a new level after the summary screen
