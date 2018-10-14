@@ -13,10 +13,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
+    // FIXME: This shouldn't be a constant, and it should be kept track of in the PlayerContext
+    private static final int LEVEL_NUMBER = 1;
+
     private Challenge challenge;
     private TextView question;
     private EditText answer;
     private final Set<Challenge> usedChallenges = new HashSet<>();
+
+    int correctCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +56,17 @@ public class GameActivity extends AppCompatActivity {
     private void onTextEntryComplete(CharSequence text) {
         if (TextUtils.equals(text, challenge.answer)) {
             Toast.makeText(this, "Correct, woho!", Toast.LENGTH_SHORT).show();
+            correctCount++;
         } else {
             Toast.makeText(this, "Wrong answer, sorry!", Toast.LENGTH_SHORT).show();
         }
 
-        setNewChallenge();
+        if (usedChallenges.size() >= 10) {
+            LevelFinishedActivity.start(this, LEVEL_NUMBER, correctCount);
+            finish();
+        } else {
+            setNewChallenge();
+        }
     }
 
     private void setNewChallenge() {
