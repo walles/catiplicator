@@ -15,4 +15,19 @@ public class Challenge {
         question = "" + a + "⋅" + b;
         answer = "" + a * b;
     }
+
+    @Override
+    public int hashCode() {
+        return question.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Challenge)) {
+            return false;
+        }
+        Challenge that = (Challenge)obj;
+
+        return question.equals(that.question);
+    }
 }

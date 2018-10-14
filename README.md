@@ -28,10 +28,13 @@
 ## TODO
 
 * Finish the level after 10 questions
+* Show progress bar during the level
 * Add a level summary screen
+* Pause a bit after each completed answer to give the user time to
+  understand whether they passed or failed
 * Enable player to start a new level after the summary screen
 * Create a challenge suggester that suggests challenges based on:
-  * level context (what we've used in the current round), avoid repetition
+  * DONE: level context (what we've used in the current round), avoid repetition
   * player context (skill level, failures)
 * Add (cat inspired?) sound effects to all interactions
 * Put cat pictures as backgrounds for all screens, with text going into

@@ -9,10 +9,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class GameActivity extends AppCompatActivity {
     private Challenge challenge;
     private TextView question;
     private EditText answer;
+    private final Set<Challenge> usedChallenges = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,17 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setNewChallenge() {
-        challenge = new Challenge();
+        // Create a new not-yet-used challenge
+        Challenge newChallenge;
+        do {
+            // FIXME: Throw exception after too many iterations
+            newChallenge = new Challenge();
+        } while (usedChallenges.contains(newChallenge));
+        challenge = newChallenge;
+
         question.setText(challenge.question);
         answer.setText("");
+
+        usedChallenges.add(challenge);
     }
 }
