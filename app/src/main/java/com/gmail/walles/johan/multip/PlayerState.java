@@ -11,6 +11,8 @@ import java.io.Serializable;
 
 // Consider replacing Serializable with SQLite and Flyway to support database migrations
 public class PlayerState implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     /**
      * The highest not-completed level.
      */

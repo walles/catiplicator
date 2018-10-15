@@ -28,6 +28,7 @@
 
 ## TODO
 
+* Set up CI on pushes, running at least the JUnit tests
 * Maintain user state throughout the app
 * Add failed challenges to user state
 * Show progress bar during the level
