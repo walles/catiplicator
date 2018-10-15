@@ -9,13 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
-    // FIXME: This shouldn't be a constant, and it should be kept track of in the PlayerContext
-    private static final int LEVEL_NUMBER = 1;
-
     private Challenge challenge;
     private TextView question;
     private EditText answer;
@@ -62,7 +60,16 @@ public class GameActivity extends AppCompatActivity {
         }
 
         if (usedChallenges.size() >= 10) {
-            LevelFinishedActivity.start(this, LEVEL_NUMBER, correctCount);
+            int levelNumber;
+            try {
+                PlayerState playerState = PlayerState.fromContext(this);
+                levelNumber = playerState.getLevel();
+                playerState.increaseLevel();
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to update player state level", e);
+            }
+
+            LevelFinishedActivity.start(this, levelNumber, correctCount);
             finish();
         } else {
             setNewChallenge();

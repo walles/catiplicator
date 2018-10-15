@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
+
+import java.io.IOException;
 
 public class LevelLaunchingActivity extends AppCompatActivity {
     @Override
@@ -12,7 +14,16 @@ public class LevelLaunchingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_launching);
 
-        findViewById(R.id.launch_level_button).setOnClickListener(
+        int level;
+        try {
+            level = PlayerState.fromContext(this).getLevel();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to find which level to start", e);
+        }
+
+        Button launchButton = findViewById(R.id.launch_level_button);
+        launchButton.setText("Level " + level);
+        launchButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -28,8 +28,6 @@
 
 ## TODO
 
-* Set up CI on pushes, running at least the JUnit tests
-* Maintain user state throughout the app
 * Add failed challenges to user state
 * Show progress bar during the level
 * Pause a bit after each completed answer to give the user time to
@@ -37,6 +35,7 @@
 * Create a challenge suggester that suggests challenges based on:
   * DONE: level context (what we've used in the current round), avoid repetition
   * player context (skill level, failures)
+* Set up CI on pushes, running at least the JUnit tests
 * If the player defeats a previously-failed question, say so in the
   level-finished screen
 * Add (cat inspired?) sound effects to all interactions
@@ -64,3 +63,4 @@
 * Finish the level after 10 questions
 * Add a level summary screen
 * Enable player to start a new level after the summary screen
+* Maintain user state throughout the app

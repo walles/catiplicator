@@ -1,5 +1,7 @@
 package com.gmail.walles.johan.multip;
 
+import android.content.Context;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,6 +17,8 @@ public class PlayerState implements Serializable {
 
     /**
      * The highest not-completed level.
+     *
+     * When the user starts a new level, this is the level they will end up on.
      */
     private int level = 1;
 
@@ -27,7 +31,8 @@ public class PlayerState implements Serializable {
         this.file = file;
     }
 
-    public static PlayerState fromFile(File file) throws IOException {
+    // This method has default protection for testing purposes
+    static PlayerState fromFile(File file) throws IOException {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
             return (PlayerState) in.readObject();
         } catch (ClassNotFoundException e) {
@@ -35,6 +40,10 @@ public class PlayerState implements Serializable {
         } catch (FileNotFoundException e) {
             return new PlayerState(file);
         }
+    }
+
+    public static PlayerState fromContext(Context context) throws IOException {
+        return fromFile(new File(context.getFilesDir(), "player-state"));
     }
 
     /**
@@ -51,6 +60,9 @@ public class PlayerState implements Serializable {
         }
     }
 
+    /*
+     * This method is expected to be called from GameActivity when the level is completed
+     */
     public void increaseLevel() throws IOException {
         level++;
 
