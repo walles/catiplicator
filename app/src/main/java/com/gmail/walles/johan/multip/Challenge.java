@@ -1,9 +1,12 @@
 package com.gmail.walles.johan.multip;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Challenge {
-    private static final Random RANDOM = new Random();
+public class Challenge implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private static final transient Random RANDOM = new Random();
 
     public final String question;
     public final String answer;

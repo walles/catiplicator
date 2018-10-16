@@ -28,7 +28,7 @@
 
 ## TODO
 
-* Add failed challenges to user state
+* Add `Timber` and start logging
 * Show progress bar during the level
 * Pause a bit after each completed answer to give the user time to
   understand whether they passed or failed
@@ -64,3 +64,4 @@
 * Add a level summary screen
 * Enable player to start a new level after the summary screen
 * Maintain user state throughout the app
+* Add failed challenges to user state

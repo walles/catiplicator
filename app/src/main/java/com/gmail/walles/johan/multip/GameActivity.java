@@ -18,13 +18,20 @@ public class GameActivity extends AppCompatActivity {
     private TextView question;
     private EditText answer;
     private final Set<Challenge> usedChallenges = new HashSet<>();
+    private PlayerState playerState;
 
-    int correctCount;
+    private int correctCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        try {
+            playerState = PlayerState.fromContext(this);
+        } catch (IOException e) {
+            throw new RuntimeException("Setting up player state failed", e);
+        }
 
         question = findViewById(R.id.question);
         answer = findViewById(R.id.answer);
@@ -52,24 +59,28 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void onTextEntryComplete(CharSequence text) {
+        try {
+            handleAnswer(text);
+        } catch (IOException e) {
+            throw new RuntimeException("Updating player state failed", e);
+        }
+    }
+
+    private void handleAnswer(CharSequence text) throws IOException {
         if (TextUtils.equals(text, challenge.answer)) {
             Toast.makeText(this, "Correct, woho!", Toast.LENGTH_SHORT).show();
+            playerState.noteSuccess(challenge);
             correctCount++;
         } else {
             Toast.makeText(this, "Wrong answer, sorry!", Toast.LENGTH_SHORT).show();
+            playerState.noteFailure(challenge);
         }
 
         if (usedChallenges.size() >= 10) {
-            int levelNumber;
-            try {
-                PlayerState playerState = PlayerState.fromContext(this);
-                levelNumber = playerState.getLevel();
-                playerState.increaseLevel();
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to update player state level", e);
-            }
+            int finishedLevel = playerState.getLevel();
+            playerState.increaseLevel();
 
-            LevelFinishedActivity.start(this, levelNumber, correctCount);
+            LevelFinishedActivity.start(this, finishedLevel, correctCount);
             finish();
         } else {
             setNewChallenge();

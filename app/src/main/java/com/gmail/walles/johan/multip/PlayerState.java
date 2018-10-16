@@ -7,13 +7,18 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 // Consider replacing Serializable with SQLite and Flyway to support database migrations
 public class PlayerState implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
+
+    private Map<Challenge, Integer> retriesNeeded = new HashMap<>();
 
     /**
      * The highest not-completed level.
@@ -34,10 +39,13 @@ public class PlayerState implements Serializable {
     // This method has default protection for testing purposes
     static PlayerState fromFile(File file) throws IOException {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-            return (PlayerState) in.readObject();
+            return (PlayerState)in.readObject();
         } catch (ClassNotFoundException e) {
             throw new IOException("PlayerState not found in " + file, e);
         } catch (FileNotFoundException e) {
+            return new PlayerState(file);
+        } catch (InvalidClassException e) {
+            // FIXME: Log warning about this
             return new PlayerState(file);
         }
     }
@@ -71,5 +79,53 @@ public class PlayerState implements Serializable {
 
     public int getLevel() {
         return level;
+    }
+
+    /**
+     * Decrease retries-count for this challenge when applicable.
+     */
+    public void noteSuccess(Challenge challenge) throws IOException {
+        if (!retriesNeeded.containsKey(challenge)) {
+            // No retries required
+            return;
+        }
+
+        int retries = retriesNeeded.get(challenge);
+        retries--;
+
+        if (retries <= 0) {
+            // No more retries, woho!
+            retriesNeeded.remove(challenge);
+            persist();
+            return;
+        }
+
+        retriesNeeded.put(challenge, retries);
+        persist();
+    }
+
+    public void noteFailure(Challenge challenge) throws IOException {
+        int retries = 0;
+        if (retriesNeeded.containsKey(challenge)) {
+            retries = retriesNeeded.get(challenge);
+        }
+
+        if (retries == 0) {
+            // First-time offender, request one more try
+            retriesNeeded.put(challenge, 1);
+        } else {
+            // Multiple offenses, request three retries
+            retriesNeeded.put(challenge, 3);
+        }
+
+        persist();
+    }
+
+    public int getRetries(Challenge challenge) {
+        if (!retriesNeeded.containsKey(challenge)) {
+            return 0;
+        }
+
+        return retriesNeeded.get(challenge);
     }
 }
