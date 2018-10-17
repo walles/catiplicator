@@ -14,9 +14,11 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import timber.log.Timber;
+
 // Consider replacing Serializable with SQLite and Flyway to support database migrations
 public class PlayerState implements Serializable {
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 3L;
 
     private Map<Challenge, Integer> retriesNeeded = new HashMap<>();
 
@@ -26,6 +28,8 @@ public class PlayerState implements Serializable {
      * When the user starts a new level, this is the level they will end up on.
      */
     private int level = 1;
+
+    private double skillLevel = 1.0;
 
     /**
      * This is our on-disk backing store.
@@ -45,7 +49,7 @@ public class PlayerState implements Serializable {
         } catch (FileNotFoundException e) {
             return new PlayerState(file);
         } catch (InvalidClassException e) {
-            // FIXME: Log warning about this
+            Timber.w(e, "Player state loading failed, starting over");
             return new PlayerState(file);
         }
     }
@@ -85,6 +89,10 @@ public class PlayerState implements Serializable {
      * Decrease retries-count for this challenge when applicable.
      */
     public void noteSuccess(Challenge challenge) throws IOException {
+        if (challenge.getDifficulty() >= skillLevel) {
+            skillLevel += 0.25;
+        }
+
         if (!retriesNeeded.containsKey(challenge)) {
             // No retries required
             return;
@@ -105,6 +113,11 @@ public class PlayerState implements Serializable {
     }
 
     public void noteFailure(Challenge challenge) throws IOException {
+        skillLevel -= 1.0;
+        if (skillLevel <= 1.0) {
+            skillLevel = 1.0;
+        }
+
         int retries = 0;
         if (retriesNeeded.containsKey(challenge)) {
             retries = retriesNeeded.get(challenge);
