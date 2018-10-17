@@ -88,13 +88,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setNewChallenge() {
-        // Create a new not-yet-used challenge
-        Challenge newChallenge;
-        do {
-            // FIXME: Throw exception after too many iterations
-            newChallenge = new Challenge();
-        } while (usedChallenges.contains(newChallenge));
-        challenge = newChallenge;
+        challenge = ChallengePicker.pickChallenge(usedChallenges, playerState);
 
         question.setText(challenge.question);
         answer.setText("");

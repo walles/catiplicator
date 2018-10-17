@@ -30,7 +30,7 @@ public class PlayerStateTest {
     public void testRetries() throws Exception {
         File file = new File(testFolder.getRoot(), "playerstate");
 
-        Challenge challenge = new Challenge();
+        Challenge challenge = new Challenge(4, 7);
 
         PlayerState playerState = PlayerState.fromFile(file);
 

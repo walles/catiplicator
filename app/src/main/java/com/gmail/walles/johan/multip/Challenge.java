@@ -1,19 +1,19 @@
 package com.gmail.walles.johan.multip;
 
 import java.io.Serializable;
-import java.util.Random;
 
 public class Challenge implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    private static final transient Random RANDOM = new Random();
+    private static final long serialVersionUID = 2L;
 
     public final String question;
     public final String answer;
 
-    public Challenge() {
-        int a = RANDOM.nextInt(10) + 1;
-        int b = RANDOM.nextInt(10) + 1;
+    private final int a;
+    private final int b;
+
+    public Challenge(int a, int b) {
+        this.a = a;
+        this.b = b;
 
         question = "" + a + "⋅" + b;
         answer = "" + a * b;
@@ -32,5 +32,15 @@ public class Challenge implements Serializable {
         Challenge that = (Challenge)obj;
 
         return question.equals(that.question);
+    }
+
+    public int getDifficulty() {
+        if (a == 1 || b == 1) {
+            return 1;
+        } else if (a == 10 || b == 10) {
+            return 2;
+        } else {
+            return a + b;
+        }
     }
 }
