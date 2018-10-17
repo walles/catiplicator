@@ -20,6 +20,14 @@ import timber.log.Timber;
 public class PlayerState implements Serializable {
     private static final long serialVersionUID = 3L;
 
+    private static final double SUCCESS_PERCENTAGE = 80;
+
+    /**
+     * Yes, it is true, this formula is correct :)
+     */
+    private static final double SKILL_LEVEL_RAISE_ON_SUCCESS =
+            (100 - SUCCESS_PERCENTAGE) / SUCCESS_PERCENTAGE;
+
     private Map<Challenge, Integer> retriesNeeded = new HashMap<>();
 
     /**
@@ -90,7 +98,7 @@ public class PlayerState implements Serializable {
      */
     public void noteSuccess(Challenge challenge) throws IOException {
         if (challenge.getDifficulty() >= skillLevel) {
-            skillLevel += 0.25;
+            skillLevel += SKILL_LEVEL_RAISE_ON_SUCCESS;
         }
 
         if (!retriesNeeded.containsKey(challenge)) {
