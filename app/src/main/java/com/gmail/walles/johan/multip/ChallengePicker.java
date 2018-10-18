@@ -8,8 +8,10 @@ import java.util.Set;
 
 public class ChallengePicker {
     private static final Random RANDOM = new Random();
+    public static final double SUCCESS_PERCENTAGE = 80;
 
     private final static Map<Integer, Set<Challenge>> difficultyToChallenges = createChallengesMap();
+
     private static Map<Integer, Set<Challenge>> createChallengesMap() {
         Map<Integer, Set<Challenge>> returnMe = new HashMap<>();
 
@@ -42,7 +44,7 @@ public class ChallengePicker {
             int a = RANDOM.nextInt(10) + 1;
             int b = RANDOM.nextInt(10) + 1;
             newChallenge = new Challenge(a, b);
-        } while (alreadyPicked.contains(newChallenge));
+        } while (levelState.usedChallenges.contains(newChallenge));
 
         return newChallenge;
     }

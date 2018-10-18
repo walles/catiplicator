@@ -10,14 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 public class GameActivity extends AppCompatActivity {
     private Challenge challenge;
     private TextView question;
     private EditText answer;
-    private final Set<Challenge> usedChallenges = new HashSet<>();
+    private final LevelState levelState = new LevelState();
     private PlayerState playerState;
 
     private int correctCount;
@@ -74,9 +72,10 @@ public class GameActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Wrong answer, sorry!", Toast.LENGTH_SHORT).show();
             playerState.noteFailure(challenge);
+            levelState.failureCount++;
         }
 
-        if (usedChallenges.size() >= 10) {
+        if (levelState.usedChallenges.size() >= 10) {
             int finishedLevel = playerState.getLevel();
             playerState.increaseLevel();
 
@@ -88,11 +87,11 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setNewChallenge() {
-        challenge = ChallengePicker.pickChallenge(usedChallenges, playerState);
+        challenge = ChallengePicker.pickChallenge(levelState, playerState);
 
         question.setText(challenge.question);
         answer.setText("");
 
-        usedChallenges.add(challenge);
+        levelState.usedChallenges.add(challenge);
     }
 }
