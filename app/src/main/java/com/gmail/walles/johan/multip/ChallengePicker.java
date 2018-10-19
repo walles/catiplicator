@@ -1,5 +1,7 @@
 package com.gmail.walles.johan.multip;
 
+import android.annotation.SuppressLint;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -13,6 +15,8 @@ public class ChallengePicker {
     private final static Map<Integer, Set<Challenge>> difficultyToChallenges = createChallengesMap();
 
     private static Map<Integer, Set<Challenge>> createChallengesMap() {
+        // The SparseArray is probably fine, but it doesn't work during JUnit testing
+        @SuppressLint("UseSparseArrays")
         Map<Integer, Set<Challenge>> returnMe = new HashMap<>();
 
         for (int i = 1; i <= 10; i++) {
