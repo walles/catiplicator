@@ -37,7 +37,7 @@ public class ChallengePicker {
     /**
      * Provide a not-yet-used challenge
      */
-    public static Challenge pickChallenge(Set <Challenge> alreadyPicked, PlayerState playerState) {
+    public static Challenge pickChallenge(LevelState levelState, PlayerState playerState) {
         Challenge newChallenge;
         do {
             // FIXME: Throw exception after too many iterations
