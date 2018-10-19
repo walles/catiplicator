@@ -1,5 +1,7 @@
 package com.gmail.walles.johan.multip;
 
+import static org.hamcrest.CoreMatchers.is;
+
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -16,14 +18,14 @@ public class PlayerStateTest {
         File file = new File(testFolder.getRoot(), "playerstate");
 
         PlayerState playerState = PlayerState.fromFile(file);
-        Assert.assertEquals(1, playerState.getLevel());
+        Assert.assertThat(playerState.getLevel(), is(1));
 
         playerState.increaseLevel();
-        Assert.assertEquals(2, playerState.getLevel());
+        Assert.assertThat(playerState.getLevel(), is(2));
 
         // Create a new object with the same path and verify that it gets loaded correctly
         playerState = PlayerState.fromFile(file);
-        Assert.assertEquals(2, playerState.getLevel());
+        Assert.assertThat(playerState.getLevel(), is(2));
     }
 
     @Test
@@ -34,27 +36,27 @@ public class PlayerStateTest {
 
         PlayerState playerState = PlayerState.fromFile(file);
 
-        Assert.assertEquals(0, playerState.getRetries(challenge));
+        Assert.assertThat(playerState.getRetries(challenge), is(0));
 
         // Success from no-failures-noted, should be a no-op
         playerState.noteSuccess(challenge);
-        Assert.assertEquals(0, playerState.getRetries(challenge));
+        Assert.assertThat(playerState.getRetries(challenge), is(0));
 
         // First failure, one retry
         playerState.noteFailure(challenge);
-        Assert.assertEquals(1, playerState.getRetries(challenge));
+        Assert.assertThat(playerState.getRetries(challenge), is(1));
 
         // One retry done, no more retries neede
         playerState.noteSuccess(challenge);
-        Assert.assertEquals(0, playerState.getRetries(challenge));
+        Assert.assertThat(playerState.getRetries(challenge), is(0));
 
         // Multiple failures, require three retries
         playerState.noteFailure(challenge);
         playerState.noteFailure(challenge);
-        Assert.assertEquals(3, playerState.getRetries(challenge));
+        Assert.assertThat(playerState.getRetries(challenge), is(3));
 
         // Verify that we can read retries from disk
         PlayerState recovered = PlayerState.fromFile(file);
-        Assert.assertEquals(3, recovered.getRetries(challenge));
+        Assert.assertThat(recovered.getRetries(challenge), is(3));
     }
 }
