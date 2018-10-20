@@ -12,8 +12,12 @@ import java.util.Set;
 public class ChallengePicker {
     private static final Random RANDOM = new Random();
 
-    private interface ChallengeApprover {
-        boolean approved(Challenge challenge);
+    private interface DifficultyApprover {
+        boolean approved(int difficulty);
+    }
+
+    public interface DifficultyEvaluator {
+        int getBest(int a, int b);
     }
 
     /**
@@ -85,7 +89,7 @@ public class ChallengePicker {
     }
 
     @Nullable
-    private static Challenge pickChallenge(LevelState levelState, ChallengeApprover filter) {
+    private static Challenge pickChallenge(LevelState levelState, DifficultyApprover filter, DifficultyEvaluator getBestDifficulty) {
         List<Challenge> candidates = new ArrayList<>();
         for (Challenge challenge: allChallenges) {
             if (levelState.usedChallenges.contains(challenge)) {
@@ -93,7 +97,7 @@ public class ChallengePicker {
                 continue;
             }
 
-            if (!filter.approved(challenge)) {
+            if (!filter.approved(challenge.getDifficulty())) {
                 // Not wanted, never mind
                 continue;
             }
@@ -105,7 +109,22 @@ public class ChallengePicker {
             return null;
         }
 
-        return candidates.get(RANDOM.nextInt(candidates.size()));
+        List<Challenge> bestCandidates = new ArrayList<>();
+        int difficulty = candidates.get(0).getDifficulty();
+        for (Challenge challenge : candidates) {
+            int bestDifficulty = getBestDifficulty.getBest(challenge.getDifficulty(), difficulty);
+            if (bestDifficulty != difficulty) {
+                // Old record beat
+                bestCandidates.clear();
+            }
+
+            if (challenge.getDifficulty() == bestDifficulty) {
+                bestCandidates.add(challenge);
+                difficulty = challenge.getDifficulty();
+            }
+        }
+
+        return bestCandidates.get(RANDOM.nextInt(bestCandidates.size()));
     }
 
     /**
@@ -119,23 +138,18 @@ public class ChallengePicker {
             return returnMe;
         }
 
-        // From available current-level tasks, pick one
-        returnMe = pickChallenge(levelState,
-                challenge -> challenge.getDifficulty() == (int)playerState.getSkillLevel());
-        if (returnMe != null) {
-            return returnMe;
-        }
-
         if (levelState.failureCount < MAX_FAILURES) {
             // From available current-level-and-above tasks, pick one from as low level as possible
             returnMe = pickChallenge(levelState,
-                    challenge -> challenge.getDifficulty() >= playerState.getSkillLevel());
+                    difficulty -> difficulty >= playerState.getSkillLevel(),
+                    Math::min);
             assert returnMe != null;
             return returnMe;
         } else {
-            // From available current-level-and-below tasks, pick one
+            // From available current-level-and-below tasks, pick one from as high level as possible
             returnMe = pickChallenge(levelState,
-                    challenge -> challenge.getDifficulty() <= playerState.getSkillLevel());
+                    difficulty -> difficulty <= playerState.getSkillLevel(),
+                    Math::max);
             assert returnMe != null;
             return returnMe;
         }
