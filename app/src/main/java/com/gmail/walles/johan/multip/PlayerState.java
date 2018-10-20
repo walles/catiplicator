@@ -11,6 +11,7 @@ import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,7 +25,7 @@ public class PlayerState implements Serializable {
      * Yes, it is true, this formula is correct :)
      */
     private static final double SKILL_LEVEL_RAISE_ON_SUCCESS =
-            (100 - ChallengePicker.SUCCESS_PERCENTAGE) / ChallengePicker.SUCCESS_PERCENTAGE;
+            (100 - ChallengePicker.SUCCESS_PERCENTAGE) / (double)ChallengePicker.SUCCESS_PERCENTAGE;
 
     private Map<Challenge, Integer> retriesNeeded = new HashMap<>();
 
@@ -78,7 +79,7 @@ public class PlayerState implements Serializable {
         }
     }
 
-    /*
+    /**
      * This method is expected to be called from GameActivity when the level is completed
      */
     public void increaseLevel() throws IOException {
@@ -87,6 +88,11 @@ public class PlayerState implements Serializable {
         persist();
     }
 
+    /**
+     * What level number should be displayed to the player?
+     *
+     * @see #getSkillLevel()
+     */
     public int getLevel() {
         return level;
     }
@@ -140,11 +146,29 @@ public class PlayerState implements Serializable {
         persist();
     }
 
-    public int getRetries(Challenge challenge) {
+    public int getRetryCount(Challenge challenge) {
         if (!retriesNeeded.containsKey(challenge)) {
             return 0;
         }
 
         return retriesNeeded.get(challenge);
+    }
+
+    /**
+     * How skilled is this player?
+     *
+     * @see #getLevel()
+     */
+    public double getSkillLevel() {
+        return skillLevel;
+    }
+
+    /**
+     * Which challenges need to be retried?
+     *
+     * @see #getRetryCount(Challenge)
+     */
+    public Collection<Challenge> listRetries() {
+        return retriesNeeded.keySet();
     }
 }
