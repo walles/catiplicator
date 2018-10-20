@@ -5,9 +5,9 @@
 * :white_check_mark: Welcome screen when starting
 * :white_check_mark: Each run requires the user to press a button saying: "Level N"
 * :white_check_mark: Each level consists of 10 different challenges
-* Challenges are picked by the app so that the player succeeds 80% of the time
-* On player faults, the app lowers the player level by 1.00
-* On player successes, the app raises the player level by 0.25
+* :white_check_mark: Challenges are picked by the app so that the player succeeds 80% of the time
+* :white_check_mark: On player faults, the app lowers the player level by 1.00
+* :white_check_mark: On player successes, the app raises the player level by 0.25
 * :white_check_mark: Free text answers
 * On a wrong answer the player is shown an explanation
   * As an NxM grid?
@@ -16,11 +16,11 @@
   * Specific tips on certain challenges?
 * On correct answer, flash screen in green + sound effect / speech
 * After each round the user is presented with stats and praise, especially if they reached a new level
-* The presented level never goes down. Internally the level might though.
-* Challenges are rated by difficulty, not by which table they have
-* The app keeps track of failed challenges:
+* :white_check_mark: The presented level never goes down. Internally the level might though.
+* :white_check_mark: Challenges are rated by difficulty, not by which table they have
+* :white_check_mark: The app keeps track of failed challenges:
   * One failure is compensated by two successes
-  * Two or more failures are compensated by five successes
+  * Two or more failures are compensated by three successes
 * Recently failed challenges should come up more often, it's better that the user
   learns one challenge properly than practices many
 * When the user becomes good enough, start timing the rounds!
@@ -31,9 +31,6 @@
 * Show progress bar during the level
 * Pause a bit after each completed answer to give the user time to
   understand whether they passed or failed
-* Create a challenge suggester that suggests challenges based on:
-  * DONE: level context (what we've used in the current round), avoid repetition
-  * player context (skill level, failures)
 * Set up CI on pushes, running at least the JUnit tests
 * If the player defeats a previously-failed question, say so in the
   level-finished screen
@@ -65,3 +62,6 @@
 * Maintain user state throughout the app
 * Add failed challenges to user state
 * Add `Timber` and start logging
+* Create a challenge suggester that suggests challenges based on:
+  * level context (what we've used in the current round), avoid repetition
+  * player context (skill level, failures)
