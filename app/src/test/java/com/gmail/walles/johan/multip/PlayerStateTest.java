@@ -36,27 +36,27 @@ public class PlayerStateTest {
 
         PlayerState playerState = PlayerState.fromFile(file);
 
-        Assert.assertThat(playerState.getRetries(challenge), is(0));
+        Assert.assertThat(playerState.getRetryCount(challenge), is(0));
 
         // Success from no-failures-noted, should be a no-op
         playerState.noteSuccess(challenge);
-        Assert.assertThat(playerState.getRetries(challenge), is(0));
+        Assert.assertThat(playerState.getRetryCount(challenge), is(0));
 
         // First failure, one retry
         playerState.noteFailure(challenge);
-        Assert.assertThat(playerState.getRetries(challenge), is(1));
+        Assert.assertThat(playerState.getRetryCount(challenge), is(1));
 
         // One retry done, no more retries neede
         playerState.noteSuccess(challenge);
-        Assert.assertThat(playerState.getRetries(challenge), is(0));
+        Assert.assertThat(playerState.getRetryCount(challenge), is(0));
 
         // Multiple failures, require three retries
         playerState.noteFailure(challenge);
         playerState.noteFailure(challenge);
-        Assert.assertThat(playerState.getRetries(challenge), is(3));
+        Assert.assertThat(playerState.getRetryCount(challenge), is(3));
 
         // Verify that we can read retries from disk
         PlayerState recovered = PlayerState.fromFile(file);
-        Assert.assertThat(recovered.getRetries(challenge), is(3));
+        Assert.assertThat(recovered.getRetryCount(challenge), is(3));
     }
 }
