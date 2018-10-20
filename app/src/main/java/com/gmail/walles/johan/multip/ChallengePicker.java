@@ -101,6 +101,10 @@ public class ChallengePicker {
             candidates.add(challenge);
         }
 
+        if (candidates.isEmpty()) {
+            return null;
+        }
+
         return candidates.get(RANDOM.nextInt(candidates.size()));
     }
 
