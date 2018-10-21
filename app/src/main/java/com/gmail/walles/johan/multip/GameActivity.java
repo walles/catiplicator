@@ -18,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
     private EditText answer;
     private final LevelState levelState = new LevelState();
     private PlayerState playerState;
+    private MediaPlayer ding;
 
     private int correctCount;
 
@@ -25,6 +26,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        ding = MediaPlayer.create(this, R.raw.ding);
 
         try {
             playerState = PlayerState.fromContext(this);
@@ -71,7 +74,7 @@ public class GameActivity extends AppCompatActivity {
             playerState.noteSuccess(challenge);
             correctCount++;
 
-            MediaPlayer.create(this, R.raw.ding).start();
+            ding.start();
         } else {
             Toast.makeText(this, "Wrong answer, sorry!", Toast.LENGTH_SHORT).show();
             playerState.noteFailure(challenge);
