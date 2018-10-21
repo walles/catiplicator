@@ -28,6 +28,10 @@
 
 ## TODO
 
+* On success, play encouraging sound effect
+* On failure, open a dialog saying:
+  "The answer is 5*4=20, type it here: 5x4=__". Close the dialog when the
+  user has typed the correct answer
 * Show progress bar during the level
 * Pause a bit after each completed answer to give the user time to
   understand whether they passed or failed
