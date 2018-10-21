@@ -1,5 +1,6 @@
 package com.gmail.walles.johan.multip;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -69,6 +70,8 @@ public class GameActivity extends AppCompatActivity {
             Toast.makeText(this, "Correct, woho!", Toast.LENGTH_SHORT).show();
             playerState.noteSuccess(challenge);
             correctCount++;
+
+            MediaPlayer.create(this, R.raw.ding).start();
         } else {
             Toast.makeText(this, "Wrong answer, sorry!", Toast.LENGTH_SHORT).show();
             playerState.noteFailure(challenge);

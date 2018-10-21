@@ -28,7 +28,6 @@
 
 ## TODO
 
-* On success, play encouraging sound effect
 * On failure, open a dialog saying:
   "The answer is 5*4=20, type it here: 5x4=__". Close the dialog when the
   user has typed the correct answer
@@ -69,3 +68,4 @@
 * Create a challenge suggester that suggests challenges based on:
   * level context (what we've used in the current round), avoid repetition
   * player context (skill level, failures)
+* On success, play encouraging sound effect
