@@ -29,10 +29,6 @@ public class GameActivity extends AppCompatActivity {
     private final Handler handler = new Handler(Looper.myLooper());
     private int correctCount;
 
-    private interface RunnableWithIOException {
-        void run() throws IOException;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +76,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     @SuppressLint("SetTextI18n")
-    private void showAnswerDialog(RunnableWithIOException callAfter) {
+    private void showAnswerDialog(Runnable callAfter) {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_redo_failed);
 
@@ -117,12 +113,8 @@ public class GameActivity extends AppCompatActivity {
 
                     handler.postDelayed(() -> {
                         dialog.dismiss();
-                        try {
-                            callAfter.run();
-                        } catch (IOException e) {
-                            throw new RuntimeException("Finishing answer dialog failed", e);
-                        }
-                    }, 2500);
+                        callAfter.run();
+                    }, 2000);
                 }
             }
 
@@ -147,7 +139,7 @@ public class GameActivity extends AppCompatActivity {
 
             ding.start();
 
-            handleChallengeDone();
+            handler.postDelayed(this::handleChallengeDone, 1000);
         } else {
             playerState.noteFailure(challenge);
             levelState.failureCount++;
@@ -155,10 +147,14 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void handleChallengeDone() throws IOException {
+    private void handleChallengeDone() {
         if (levelState.usedChallenges.size() >= 10) {
             int finishedLevel = playerState.getLevel();
-            playerState.increaseLevel();
+            try {
+                playerState.increaseLevel();
+            } catch (IOException e) {
+                throw new RuntimeException("Persisting player state failed");
+            }
 
             LevelFinishedActivity.start(this, finishedLevel, correctCount);
             finish();
@@ -171,7 +167,10 @@ public class GameActivity extends AppCompatActivity {
         challenge = ChallengePicker.pickChallenge(levelState, playerState);
 
         question.setText(challenge.question);
+
         answer.setText("");
+        answer.setFilters(new InputFilter[] {
+                new InputFilter.LengthFilter(challenge.answer.length())});
 
         // FIXME: Somehow ask the system to pop up the soft keyboard if it isn't already visible.
         // This is a problem after having shown the wrong-answer-please-redo dialog.
