@@ -2,6 +2,7 @@ package com.gmail.walles.johan.multip;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -104,28 +105,31 @@ public class GameActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (TextUtils.equals(hintedAnswerBox.getText(), challenge.answer)) {
+                // This block intentionally left blank
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() != challenge.answer.length()) {
+                    // User not done
+                    return;
+                }
+
+                if (TextUtils.equals(s, challenge.answer)) {
                     // Freeze the UI and pause a bit before dropping the dialog box. We want
                     // the user to be able to see that they typed the right answer.
-
-                    // FIXME: Can we make the text stand more while still freezing the input?
-                    hintedAnswerBox.setEnabled(false);
+                    hintedAnswerBox.setTypeface(null, Typeface.BOLD);
+                    hintedAnswerBox.setTextColor(0xff008000);
 
                     handler.postDelayed(() -> {
                         dialog.dismiss();
                         callAfter.run();
                     }, 2000);
+                    return;
                 }
-            }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                // If the user put in the correct answer that would have been caught in
-                // onTextChanged(), and we would never have ended up here.
-                if (s.length() == challenge.answer.length()) {
-                    // Correct number of chars, but not the correct ones, start over
-                    s.clear();
-                }
+                // Wrong answer, try again
+                s.clear();
             }
         });
 
