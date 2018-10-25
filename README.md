@@ -32,7 +32,6 @@
 * Fix app orientation to portrait
 * Test what happens when skill level goes above difficulty of available
   assignments
-* Put cat picture as background for level-finished screen
 * Add meow sound effect when starting a new level
 * Add a music score. Auto-generated from the Internet?
 * Localize into Swedish
@@ -77,3 +76,4 @@
   one for 9/10 or less
 * Put cat picture as background for level-launching screen
 * Put cat picture as background for in-game screen
+* Put cat picture as background for level-finished screen
