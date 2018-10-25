@@ -15,7 +15,8 @@
   * For 5x3, show `5=5`, `5+5=10`, `5+5+5=15`?
   * Specific tips on certain challenges?
 * On correct answer, flash screen in green + sound effect / speech
-* After each round the user is presented with stats and praise, especially if they reached a new level
+* After each round the user is presented with stats and praise,
+  especially if they beat a problem they initially failed on
 * :white_check_mark: The presented level never goes down. Internally the level might though.
 * :white_check_mark: Challenges are rated by difficulty, not by which table they have
 * :white_check_mark: The app keeps track of failed challenges:
@@ -28,12 +29,11 @@
 
 ## TODO
 
-* On failure, open a dialog saying:
-  "The answer is 5*4=20, type it here: 5x4=__". Close the dialog when the
-  user has typed the correct answer
-* Show progress bar during the level
 * Pause a bit after each completed answer to give the user time to
   understand whether they passed or failed
+* Test what happens when skill level goes above difficulty of available
+  assignments
+* Show progress bar during the level
 * Set up CI on pushes, running at least the JUnit tests
 * If the player defeats a previously-failed question, say so in the
   level-finished screen
@@ -69,3 +69,6 @@
   * level context (what we've used in the current round), avoid repetition
   * player context (skill level, failures)
 * On success, play encouraging sound effect
+* On failure, open a dialog saying:
+  "The answer is 5*4=20, type it here: 5x4=__". Close the dialog when the
+  user has typed the correct answer
