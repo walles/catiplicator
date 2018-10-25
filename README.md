@@ -31,18 +31,18 @@
 
 * Test what happens when skill level goes above difficulty of available
   assignments
+* Put cat pictures as backgrounds for all screens
+* Add meow sound effect when starting a new level
+* Add a music score. Auto-generated from the Internet?
+* Localize into Swedish
 * Show progress bar during the level
 * Set up CI on pushes, running at least the JUnit tests
 * If the player defeats a previously-failed question, say so in the
   level-finished screen
-* Add (cat inspired?) sound effects to all interactions
-* Put cat pictures as backgrounds for all screens, with text going into
-  speech bubbles
 * Rename to "Meowplicator"
 * Use Comic Sans as a font everywhere?
 * Test cat pictures, text and speech bubbles on multiple resolutions
 * Test cat pictures, text and speech bubbles on multiple aspect ratios
-* Consider adding a music score, auto-generated from the Internet?
 * Add skip button to Game Activity (counts as failing the question)
 
 ### DONE
@@ -72,3 +72,5 @@
   user has typed the correct answer
 * Pause a bit after each completed answer to give the user time to
   understand whether they passed or failed
+* Add applause sound to level-finished screen. One for 10/10, another
+  one for 9/10 or less

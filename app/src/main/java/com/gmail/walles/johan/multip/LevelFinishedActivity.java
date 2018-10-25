@@ -2,6 +2,7 @@ package com.gmail.walles.johan.multip;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,6 +30,14 @@ public class LevelFinishedActivity extends AppCompatActivity {
 
         int levelNumber = getIntent().getIntExtra(EXTRA_LEVEL_NUMBER, -1);
         int correctCount = getIntent().getIntExtra(EXTRA_CORRECT_COUNT, -1);
+
+        MediaPlayer wow;
+        if (correctCount == 10) {
+            wow = MediaPlayer.create(this, R.raw.happykids);
+        } else {
+            wow = MediaPlayer.create(this, R.raw.lightapplause);
+        }
+        wow.start();
 
         TextView textView = findViewById(R.id.levelFinishedText);
         textView.setText(String.format(Locale.ENGLISH, "Level %d finished, you got %d answers right!",
