@@ -31,7 +31,8 @@
 
 * Test what happens when skill level goes above difficulty of available
   assignments
-* Put cat pictures as backgrounds for all screens
+* Put cat picture as background for in-game screen
+* Put cat picture as background for level-finished screen
 * Add meow sound effect when starting a new level
 * Add a music score. Auto-generated from the Internet?
 * Localize into Swedish
@@ -74,3 +75,4 @@
   understand whether they passed or failed
 * Add applause sound to level-finished screen. One for 10/10, another
   one for 9/10 or less
+* Put cat picture as background for level-launching screen
