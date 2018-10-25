@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <com.gmail.walles.johan.multip.BottomCropImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Cat picture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/while_playing_cat"/>
+
     <TextView
         android:id="@+id/question"
         android:layout_width="0dp"
@@ -18,7 +29,7 @@
         android:text="5x6="
         android:textAlignment="textEnd"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintEnd_toStartOf="@id/answer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -34,10 +45,17 @@
         android:importantForAutofill="no"
         android:inputType="number"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/question"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor"
         tools:targetApi="o"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
 </android.support.constraint.ConstraintLayout>
