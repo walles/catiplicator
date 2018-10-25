@@ -168,10 +168,11 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void setNewChallenge() {
         challenge = ChallengePicker.pickChallenge(levelState, playerState);
 
-        question.setText(challenge.question);
+        question.setText(challenge.question + "=");
 
         answer.setText("");
         answer.setFilters(new InputFilter[] {
