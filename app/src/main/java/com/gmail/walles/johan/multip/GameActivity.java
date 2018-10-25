@@ -120,6 +120,7 @@ public class GameActivity extends AppCompatActivity {
                     // the user to be able to see that they typed the right answer.
                     hintedAnswerBox.setTypeface(null, Typeface.BOLD);
                     hintedAnswerBox.setTextColor(0xff008000);
+                    ding.start();
 
                     handler.postDelayed(() -> {
                         dialog.dismiss();
