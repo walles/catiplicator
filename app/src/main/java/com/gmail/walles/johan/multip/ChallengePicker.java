@@ -143,8 +143,13 @@ public class ChallengePicker {
             returnMe = pickChallenge(levelState,
                     difficulty -> difficulty >= playerState.getSkillLevel(),
                     Math::min);
-            assert returnMe != null;
-            return returnMe;
+
+            if (returnMe != null) {
+                return returnMe;
+            }
+
+            // If our level is too high, just return random challenges
+            return pickRandomChallenge(levelState);
         } else {
             // From available current-level-and-below tasks, pick one from as high level as possible
             returnMe = pickChallenge(levelState,
@@ -153,5 +158,19 @@ public class ChallengePicker {
             assert returnMe != null;
             return returnMe;
         }
+    }
+
+    private static Challenge pickRandomChallenge(LevelState levelState) {
+        List<Challenge> candidates = new ArrayList<>();
+        for (Challenge challenge: allChallenges) {
+            if (levelState.usedChallenges.contains(challenge)) {
+                // Already used, never mind
+                continue;
+            }
+
+            candidates.add(challenge);
+        }
+
+        return candidates.get(RANDOM.nextInt(candidates.size()));
     }
 }
