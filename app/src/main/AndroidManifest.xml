@@ -14,10 +14,13 @@
 
         <activity
             android:name=".GameActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize">
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".LevelLaunchingActivity">
+        <activity
+            android:name=".LevelLaunchingActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -25,7 +28,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LevelFinishedActivity">
+        <activity
+            android:name=".LevelFinishedActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
