@@ -45,12 +45,9 @@ public class LevelFinishedActivity extends AppCompatActivity {
                 correctCount));
 
         findViewById(R.id.levelFinishedContinue).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(LevelFinishedActivity.this, LevelLaunchingActivity.class);
-                        startActivity(intent);
-                    }
+                v -> {
+                    Intent intent = new Intent(LevelFinishedActivity.this, LevelLaunchingActivity.class);
+                    startActivity(intent);
                 });
     }
 }

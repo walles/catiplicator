@@ -24,12 +24,9 @@ public class LevelLaunchingActivity extends AppCompatActivity {
         Button launchButton = findViewById(R.id.launch_level_button);
         launchButton.setText("Level " + level);
         launchButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(LevelLaunchingActivity.this, GameActivity.class);
-                        startActivity(intent);
-                    }
+                v -> {
+                    Intent intent = new Intent(LevelLaunchingActivity.this, GameActivity.class);
+                    startActivity(intent);
                 });
     }
 }
