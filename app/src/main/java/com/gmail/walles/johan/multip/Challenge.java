@@ -1,11 +1,16 @@
 package com.gmail.walles.johan.multip;
 
+import org.jetbrains.annotations.NonNls;
+
 import java.io.Serializable;
 
 public class Challenge implements Serializable {
     private static final long serialVersionUID = 2L;
 
+    @NonNls
     public final String question;
+
+    @NonNls
     public final String answer;
 
     private final int a;

@@ -2,6 +2,8 @@ package com.gmail.walles.johan.multip;
 
 import android.content.Context;
 
+import org.jetbrains.annotations.NonNls;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,6 +28,8 @@ public class PlayerState implements Serializable {
      */
     private static final double SKILL_LEVEL_RAISE_ON_SUCCESS =
             (100 - ChallengePicker.SUCCESS_PERCENTAGE) / (double)ChallengePicker.SUCCESS_PERCENTAGE;
+    @NonNls
+    private static final String PLAYER_STATE_FILE_NAME = "player-state";
 
     private Map<Challenge, Integer> retriesNeeded = new HashMap<>();
 
@@ -62,7 +66,7 @@ public class PlayerState implements Serializable {
     }
 
     public static PlayerState fromContext(Context context) throws IOException {
-        return fromFile(new File(context.getFilesDir(), "player-state"));
+        return fromFile(new File(context.getFilesDir(), PLAYER_STATE_FILE_NAME));
     }
 
     /**

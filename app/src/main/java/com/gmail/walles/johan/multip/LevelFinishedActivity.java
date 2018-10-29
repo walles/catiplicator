@@ -8,10 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NonNls;
+
 import java.util.Locale;
 
 public class LevelFinishedActivity extends AppCompatActivity {
 
+    @NonNls
     private static final String EXTRA_LEVEL_NUMBER = "levelNumber";
     private static final String EXTRA_CORRECT_COUNT = "correctCount";
 
