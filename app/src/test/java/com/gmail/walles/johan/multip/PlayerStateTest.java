@@ -15,7 +15,7 @@ public class PlayerStateTest {
 
     @Test
     public void testPersistence() throws Exception {
-        File file = new File(testFolder.getRoot(), "playerstate");
+        File file = new File(testFolder.getRoot(), PlayerState.PLAYER_STATE_FILE_NAME);
 
         PlayerState playerState = PlayerState.fromFile(file);
         Assert.assertThat(playerState.getLevel(), is(1));
@@ -30,7 +30,7 @@ public class PlayerStateTest {
 
     @Test
     public void testRetries() throws Exception {
-        File file = new File(testFolder.getRoot(), "playerstate");
+        File file = new File(testFolder.getRoot(), PlayerState.PLAYER_STATE_FILE_NAME);
 
         Challenge challenge = new Challenge(4, 7);
 

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NonNls;
@@ -16,6 +15,7 @@ public class LevelFinishedActivity extends AppCompatActivity {
 
     @NonNls
     private static final String EXTRA_LEVEL_NUMBER = "levelNumber";
+    @NonNls
     private static final String EXTRA_CORRECT_COUNT = "correctCount";
 
     public static void start(Context context, int finishedLevel, int correctCount) {

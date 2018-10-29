@@ -29,7 +29,7 @@ public class PlayerState implements Serializable {
     private static final double SKILL_LEVEL_RAISE_ON_SUCCESS =
             (100 - ChallengePicker.SUCCESS_PERCENTAGE) / (double)ChallengePicker.SUCCESS_PERCENTAGE;
     @NonNls
-    private static final String PLAYER_STATE_FILE_NAME = "player-state";
+    static final String PLAYER_STATE_FILE_NAME = "player-state";
 
     private Map<Challenge, Integer> retriesNeeded = new HashMap<>();
 
@@ -52,7 +52,7 @@ public class PlayerState implements Serializable {
     }
 
     // This method has default protection for testing purposes
-    static PlayerState fromFile(File file) throws IOException {
+    static PlayerState fromFile(@NonNls File file) throws IOException {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
             return (PlayerState)in.readObject();
         } catch (ClassNotFoundException e) {
