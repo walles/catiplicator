@@ -20,8 +20,8 @@ public class Challenge implements Serializable {
         this.a = a;
         this.b = b;
 
-        question = "" + a + "⋅" + b;
-        answer = "" + a * b;
+        question = a + "⋅" + b;
+        answer = String.valueOf(a * b);
     }
 
     @Override
