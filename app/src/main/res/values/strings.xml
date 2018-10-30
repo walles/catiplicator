@@ -3,4 +3,5 @@
     <string name="continueText">Continue</string>
     <string name="the_correct_answer_is">The correct answer is:</string>
     <string name="please_type_it_here">Please type it here:</string>
+    <string name="level_n">Level %1$d</string>
 </resources>
