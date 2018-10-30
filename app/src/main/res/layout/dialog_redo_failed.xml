@@ -32,7 +32,8 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="HardcodedText"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -65,7 +66,8 @@
             android:layout_weight="1"
             android:text="5x6="
             android:textAlignment="textEnd"
-            android:textSize="36sp"/>
+            android:textSize="36sp"
+            tools:ignore="HardcodedText"/>
 
         <EditText
             android:id="@+id/hintedAnswerBox"
@@ -75,7 +77,8 @@
             android:hint="30"
             android:inputType="number"
             android:textAlignment="textStart"
-            android:textSize="36sp"/>
+            android:textSize="36sp"
+            tools:ignore="HardcodedText"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
