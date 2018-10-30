@@ -29,18 +29,15 @@
 
 ## TODO
 
-* Add meow sound effect when starting a new level
+* Rename to "MultipliCat"
+* Add an icon
 * Add a music score. Auto-generated from the Internet?
-* Localize into Swedish
+* Add meow sound effect when starting a new level
 * Show progress bar during the level
 * Set up CI on pushes, running at least the JUnit tests
 * If the player defeats a previously-failed question, say so in the
   level-finished screen
-* Rename to "Meowplicator"
 * Use Comic Sans as a font everywhere?
-* Test cat pictures, text and speech bubbles on multiple resolutions
-* Test cat pictures, text and speech bubbles on multiple aspect ratios
-* Add skip button to Game Activity (counts as failing the question)
 
 ### DONE
 
@@ -77,3 +74,6 @@
 * Test what happens when skill level goes above difficulty of available
   assignments. Manually tested, but still...
 * Fix app orientation to portrait
+* Localize into Swedish
+* Test cat pictures, text and speech bubbles on multiple resolutions
+* Test cat pictures, text and speech bubbles on multiple aspect ratios
