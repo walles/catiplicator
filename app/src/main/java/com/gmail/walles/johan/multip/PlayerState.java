@@ -79,7 +79,9 @@ public class PlayerState implements Serializable {
         }
 
         if (!tempfile.renameTo(file)) {
-            throw new IOException("Rename failed: " + tempfile.getAbsolutePath() + "->" + file.getAbsolutePath());
+            @NonNls String message =
+                    "Rename failed: " + tempfile.getAbsolutePath() + "->" + file.getAbsolutePath();
+            throw new IOException(message);
         }
     }
 
