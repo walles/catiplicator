@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import org.jetbrains.annotations.NonNls;
 
-import java.util.Locale;
-
 public class LevelFinishedActivity extends AppCompatActivity {
 
     @NonNls
@@ -43,7 +41,7 @@ public class LevelFinishedActivity extends AppCompatActivity {
         wow.start();
 
         TextView textView = findViewById(R.id.levelFinishedText);
-        textView.setText(String.format(Locale.ENGLISH, "Level %d finished, you got %d answers right!",
+        textView.setText(String.format(getResources().getString(R.string.level_n_finished_you_got_m_answers_right),
                 levelNumber,
                 correctCount));
 

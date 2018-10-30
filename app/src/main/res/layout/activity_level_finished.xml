@@ -26,7 +26,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Level N finished, you got M answers right!"
+        android:text="@string/level_n_finished_you_got_m_answers_right"
         android:textColor="@android:color/white"
         android:textAlignment="center"
         android:textSize="36sp"
