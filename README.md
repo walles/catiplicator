@@ -27,8 +27,18 @@
 * When the user becomes good enough, start timing the rounds!
 * Everything is cat themed
 
+## Credits
+
+* Launch screen cat: <https://www.pexels.com/photo/adorable-angry-animal-animal-portrait-208984/>
+* In-game cat: <https://www.pexels.com/photo/brown-tabby-kitten-1097288/>
+* Level-finished cat: <https://www.pexels.com/photo/beige-cat-with-gold-colored-crown-1314550/>
+* Correct-answer ding: <https://freesound.org/people/xtrgamr/sounds/441630/>
+* Level-finished cheer: <https://www.freesoundeffects.com/free-track/happykids-426842/>
+* Level-finished applause: <https://www.freesoundeffects.com/free-track/clapping-426830/>
+
 ## TODO
 
+* Fill in `credits.txt`
 * Rename to "MultipliCat"
 * Add an icon
 * Add a music score. Auto-generated from the Internet?
