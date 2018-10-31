@@ -26,6 +26,7 @@ public class GameActivity extends AppCompatActivity {
     private final LevelState levelState = new LevelState();
     private PlayerState playerState;
     private MediaPlayer ding;
+    private MediaPlayer music;
 
     private final Handler handler = new Handler(Looper.myLooper());
     private int correctCount;
@@ -36,6 +37,10 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         ding = MediaPlayer.create(this, R.raw.ding);
+
+        music = MediaPlayer.create(this, R.raw.bensound_sweet);
+        setVolumePercent(music, 50);
+        music.setLooping(true);
 
         try {
             playerState = PlayerState.fromContext(this);
@@ -66,6 +71,35 @@ public class GameActivity extends AppCompatActivity {
         });
 
         setNewChallenge();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        music.pause();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        music.start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        music.start();
+    }
+
+    /**
+     * From: https://stackoverflow.com/a/12075910/473672
+     * @param percent 0-100
+     */
+    private void setVolumePercent(MediaPlayer mediaPlayer, int percent) {
+        final int maxVolume = 100;
+
+        float log1=(float)(Math.log(maxVolume - percent)/Math.log(maxVolume));
+        mediaPlayer.setVolume(1 - log1, 1 - log1);
     }
 
     private void onTextEntryComplete(CharSequence text) {

@@ -35,11 +35,15 @@
 * Correct-answer ding: <https://freesound.org/people/xtrgamr/sounds/441630/>
 * Level-finished cheer: <https://www.freesoundeffects.com/free-track/happykids-426842/>
 * Level-finished applause: <https://www.freesoundeffects.com/free-track/clapping-426830/>
+* Music: <https://www.bensound.com/royalty-free-music/track/sweet>
 
-## TODO
+## TODO Before Installing on the Children's Tablets
+* Add music to the launch screen
+* Add music to the finished screen
 
+## TODO Misc
 * Add an icon
-* Add a music score. Auto-generated from the Internet?
+* Publish on Google Play
 * Add meow sound effect when starting a new level
 * Show progress bar during the level
 * Set up CI on pushes, running at least the JUnit tests
@@ -87,3 +91,4 @@
 * Test cat pictures, text and speech bubbles on multiple aspect ratios
 * Fill in `credits.txt`
 * Rename to "Catiplicator"
+* Add music to the game activity
