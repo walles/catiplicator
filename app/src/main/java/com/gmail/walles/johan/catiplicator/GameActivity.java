@@ -26,7 +26,7 @@ public class GameActivity extends AppCompatActivity {
     private final LevelState levelState = new LevelState();
     private PlayerState playerState;
     private MediaPlayer ding;
-    private MediaPlayer music;
+    private Music music;
 
     private final Handler handler = new Handler(Looper.myLooper());
     private int correctCount;
@@ -38,9 +38,7 @@ public class GameActivity extends AppCompatActivity {
 
         ding = MediaPlayer.create(this, R.raw.ding);
 
-        music = MediaPlayer.create(this, R.raw.bensound_sweet);
-        setVolumePercent(music, 50);
-        music.setLooping(true);
+        music = new Music(this);
 
         try {
             playerState = PlayerState.fromContext(this);
@@ -89,17 +87,6 @@ public class GameActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         music.start();
-    }
-
-    /**
-     * From: https://stackoverflow.com/a/12075910/473672
-     * @param percent 0-100
-     */
-    private void setVolumePercent(MediaPlayer mediaPlayer, int percent) {
-        final int maxVolume = 100;
-
-        float log1=(float)(Math.log(maxVolume - percent)/Math.log(maxVolume));
-        mediaPlayer.setVolume(1 - log1, 1 - log1);
     }
 
     private void onTextEntryComplete(CharSequence text) {

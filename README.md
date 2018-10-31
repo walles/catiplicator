@@ -37,10 +37,6 @@
 * Level-finished applause: <https://www.freesoundeffects.com/free-track/clapping-426830/>
 * Music: <https://www.bensound.com/royalty-free-music/track/sweet>
 
-## TODO Before Installing on the Children's Tablets
-* Add music to the launch screen
-* Add music to the finished screen
-
 ## TODO Misc
 * Add an icon
 * Publish on Google Play
@@ -92,3 +88,5 @@
 * Fill in `credits.txt`
 * Rename to "Catiplicator"
 * Add music to the game activity
+* Add music to the launch screen
+* Add music to the finished screen

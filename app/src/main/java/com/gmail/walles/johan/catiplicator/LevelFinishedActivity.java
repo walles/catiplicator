@@ -10,6 +10,7 @@ import android.widget.TextView;
 import org.jetbrains.annotations.NonNls;
 
 public class LevelFinishedActivity extends AppCompatActivity {
+    private Music music;
 
     @NonNls
     private static final String EXTRA_LEVEL_NUMBER = "levelNumber";
@@ -50,5 +51,25 @@ public class LevelFinishedActivity extends AppCompatActivity {
                     Intent intent = new Intent(LevelFinishedActivity.this, LevelLaunchingActivity.class);
                     startActivity(intent);
                 });
+
+        music = new Music(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        music.pause();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        music.start();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        music.start();
     }
 }
