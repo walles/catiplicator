@@ -5,4 +5,5 @@
     <string name="please_type_it_here">Please type it here:</string>
     <string name="level_n">Level %1$d</string>
     <string name="level_n_finished_you_got_m_answers_right">Level %1$d finished, you got %2$d answers right!</string>
+    <string name="about">About</string>
 </resources>

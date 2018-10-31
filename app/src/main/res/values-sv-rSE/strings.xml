@@ -5,4 +5,5 @@
     <string name="please_type_it_here">Fyll i här:</string>
     <string name="level_n">Nivå %1$d</string>
     <string name="level_n_finished_you_got_m_answers_right">Nivå %1$d avklarad, du fick %2$d rätt!</string>
+    <string name="about">Om</string>
 </resources>
