@@ -1,4 +1,4 @@
-package com.gmail.walles.johan.multip;
+package com.gmail.walles.johan.catiplicator;
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -17,7 +17,8 @@ public class PlayerStateTest {
     public void testPersistence() throws Exception {
         File file = new File(testFolder.getRoot(), PlayerState.PLAYER_STATE_FILE_NAME);
 
-        PlayerState playerState = PlayerState.fromFile(file);
+        PlayerState playerState = com.gmail.walles.johan.catiplicator
+                .PlayerState.fromFile(file);
         Assert.assertThat(playerState.getLevel(), is(1));
 
         playerState.increaseLevel();
@@ -34,7 +35,8 @@ public class PlayerStateTest {
 
         Challenge challenge = new Challenge(4, 7);
 
-        PlayerState playerState = PlayerState.fromFile(file);
+        PlayerState playerState = com.gmail.walles.johan.catiplicator
+                .PlayerState.fromFile(file);
 
         Assert.assertThat(playerState.getRetryCount(challenge), is(0));
 
@@ -56,7 +58,8 @@ public class PlayerStateTest {
         Assert.assertThat(playerState.getRetryCount(challenge), is(3));
 
         // Verify that we can read retries from disk
-        PlayerState recovered = PlayerState.fromFile(file);
+        PlayerState recovered = com.gmail.walles.johan.catiplicator
+                .PlayerState.fromFile(file);
         Assert.assertThat(recovered.getRetryCount(challenge), is(3));
     }
 }

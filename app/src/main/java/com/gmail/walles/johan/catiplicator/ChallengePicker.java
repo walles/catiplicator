@@ -1,4 +1,4 @@
-package com.gmail.walles.johan.multip;
+package com.gmail.walles.johan.catiplicator;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

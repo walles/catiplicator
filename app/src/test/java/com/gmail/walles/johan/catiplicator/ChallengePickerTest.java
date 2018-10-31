@@ -1,4 +1,4 @@
-package com.gmail.walles.johan.multip;
+package com.gmail.walles.johan.catiplicator;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 
@@ -10,7 +10,6 @@ public class ChallengePickerTest {
     @Test
     public void testPickChallenge() {
         PlayerState playerState = Mockito.mock(PlayerState.class);
-        Assert.assertThat(
-                ChallengePicker.pickChallenge(new LevelState(), playerState), notNullValue());
+        Assert.assertThat(ChallengePicker.pickChallenge(new LevelState(), playerState), notNullValue());
     }
 }

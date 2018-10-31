@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Multip</string>
+    <string name="app_name" translatable="false">Catiplicator</string>
     <string name="continueText">Continue</string>
     <string name="the_correct_answer_is">The correct answer is:</string>
     <string name="please_type_it_here">Please type it here:</string>

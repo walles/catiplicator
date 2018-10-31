@@ -1,4 +1,4 @@
-package com.gmail.walles.johan.multip;
+package com.gmail.walles.johan.catiplicator;
 
 import android.content.Context;
 import android.graphics.Matrix;

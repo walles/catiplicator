@@ -38,7 +38,6 @@
 
 ## TODO
 
-* Rename to "MultipliCat"
 * Add an icon
 * Add a music score. Auto-generated from the Internet?
 * Add meow sound effect when starting a new level
@@ -87,3 +86,4 @@
 * Test cat pictures, text and speech bubbles on multiple resolutions
 * Test cat pictures, text and speech bubbles on multiple aspect ratios
 * Fill in `credits.txt`
+* Rename to "Catiplicator"

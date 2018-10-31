@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
-    <com.gmail.walles.johan.multip.BottomCropImageView
+    <com.gmail.walles.johan.catiplicator.BottomCropImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
