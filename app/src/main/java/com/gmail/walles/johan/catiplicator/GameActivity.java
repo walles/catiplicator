@@ -7,7 +7,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
@@ -19,14 +18,13 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends MusicActivity {
     private Challenge challenge;
     private TextView question;
     private EditText answer;
     private final LevelState levelState = new LevelState();
     private PlayerState playerState;
     private MediaPlayer ding;
-    private Music music;
 
     private final Handler handler = new Handler(Looper.myLooper());
     private int correctCount;
@@ -37,8 +35,6 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         ding = MediaPlayer.create(this, R.raw.ding);
-
-        music = new Music(this);
 
         try {
             playerState = PlayerState.fromContext(this);
@@ -69,24 +65,6 @@ public class GameActivity extends AppCompatActivity {
         });
 
         setNewChallenge();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        music.pause();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        music.start();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        music.start();
     }
 
     private void onTextEntryComplete(CharSequence text) {

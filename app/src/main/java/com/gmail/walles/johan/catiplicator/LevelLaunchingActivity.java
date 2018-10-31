@@ -3,7 +3,6 @@ package com.gmail.walles.johan.catiplicator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Button;
@@ -17,9 +16,7 @@ import java.util.Scanner;
 
 import timber.log.Timber;
 
-public class LevelLaunchingActivity extends AppCompatActivity {
-    private Music music;
-
+public class LevelLaunchingActivity extends MusicActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -75,25 +72,5 @@ public class LevelLaunchingActivity extends AppCompatActivity {
                     Intent intent = new Intent(LevelLaunchingActivity.this, GameActivity.class);
                     startActivity(intent);
                 });
-
-        music = new Music(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        music.pause();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        music.start();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        music.start();
     }
 }
