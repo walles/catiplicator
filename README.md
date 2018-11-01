@@ -39,7 +39,6 @@
 * Icon kitten outline: <https://pixabay.com/sv/kattunge-sitter-silhouette-katt-1129027/>
 
 ## TODO Misc
-* Add an icon
 * Publish on Google Play
 * Add meow sound effect when starting a new level
 * Show progress bar during the level
@@ -92,3 +91,4 @@
 * Add music to the launch screen
 * Add music to the finished screen
 * Try using `SoundPool` to play sound effects, validate on Melvin's tablet
+* Add an icon
