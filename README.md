@@ -38,7 +38,6 @@
 * Music: <https://www.bensound.com/royalty-free-music/track/sweet>
 
 ## TODO Misc
-* Try using `SoundPool` to play sound effects, validate on Melvin's tablet
 * Add an icon
 * Publish on Google Play
 * Add meow sound effect when starting a new level
@@ -91,3 +90,4 @@
 * Add music to the game activity
 * Add music to the launch screen
 * Add music to the finished screen
+* Try using `SoundPool` to play sound effects, validate on Melvin's tablet

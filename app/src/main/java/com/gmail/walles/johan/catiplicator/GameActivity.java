@@ -3,7 +3,6 @@ package com.gmail.walles.johan.catiplicator;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,17 +23,23 @@ public class GameActivity extends MusicActivity {
     private EditText answer;
     private final LevelState levelState = new LevelState();
     private PlayerState playerState;
-    private MediaPlayer ding;
+    private SoundEffect ding;
 
     private final Handler handler = new Handler(Looper.myLooper());
     private int correctCount;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ding.release();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        ding = MediaPlayer.create(this, R.raw.ding);
+        ding = new SoundEffect(this, "ding", R.raw.ding);
 
         try {
             playerState = PlayerState.fromContext(this);
