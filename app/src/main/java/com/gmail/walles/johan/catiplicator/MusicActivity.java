@@ -40,6 +40,12 @@ public class MusicActivity extends AppCompatActivity {
         music.start();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        music.release();
+    }
+
     /**
      * From: https://stackoverflow.com/a/12075910/473672
      * @param percent 0-100
