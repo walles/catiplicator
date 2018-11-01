@@ -36,6 +36,7 @@
 * Level-finished cheer: <https://www.freesoundeffects.com/free-track/happykids-426842/>
 * Level-finished applause: <https://www.freesoundeffects.com/free-track/clapping-426830/>
 * Music: <https://www.bensound.com/royalty-free-music/track/sweet>
+* Icon kitten outline: <https://pixabay.com/sv/kattunge-sitter-silhouette-katt-1129027/>
 
 ## TODO Misc
 * Add an icon
