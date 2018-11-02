@@ -92,3 +92,4 @@
 * Add music to the finished screen
 * Try using `SoundPool` to play sound effects, validate on Melvin's tablet
 * Add an icon
+* Add God Rays from the x in the icon
