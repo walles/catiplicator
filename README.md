@@ -114,3 +114,4 @@ or [build it from source and install it over USB](https://developer.android.com/
 * Publish on Google Play
 * Update `README.md` with a link to Google Play
 * Make a less boring feature graphic
+* Add tablet screenshots
