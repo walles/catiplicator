@@ -1,5 +1,9 @@
 # Multiplication Trainer
 
+# Installing
+[Get it on Google Play](https://play.google.com/store/apps/details?id=com.gmail.walles.johan.catiplicator),
+or [build it from source and install it over USB](https://developer.android.com/studio/).
+
 # Releasing a new Version
 * Update `VersionName` and `VersionCode` in `/app/build.gradle`
 * Commit this change
@@ -46,8 +50,6 @@
 * Icon kitten outline: <https://pixabay.com/sv/kattunge-sitter-silhouette-katt-1129027/>
 
 ## TODO Misc
-* Publish on Google Play
-* Update `README.md` with a link to Google Play
 * Ensure we're made for tablets according to Google Play
 * Brighten up the feature graphics and publish it on Google Play
 * Colorize the feature graphics
@@ -111,3 +113,5 @@
   quit the whole thing.
 * Create a Feature Graphics
 * Set a license
+* Publish on Google Play
+* Update `README.md` with a link to Google Play
