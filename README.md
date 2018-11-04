@@ -1,7 +1,16 @@
 # Multiplication Trainer
 
-## Design
+# Releasing a new Version
+* Update `VersionName` and `VersionCode` in `/app/build.gradle`
+* Commit this change
+* `git push`
+* `git tag <new version name>`, do `git tag` for inspiration
+* `git push --tags`
+* In Android Studio, do *Build* / *Generate Signed APK...*
+* Upload the new APK to [Google
+Play](https://play.google.com/apps/publish)
 
+## Design
 * :white_check_mark: Welcome screen when starting
 * :white_check_mark: Each run requires the user to press a button saying: "Level N"
 * :white_check_mark: Each level consists of 10 different challenges
@@ -28,7 +37,6 @@
 * Everything is cat themed
 
 ## Credits
-
 * Launch screen cat: <https://www.pexels.com/photo/adorable-angry-animal-animal-portrait-208984/>
 * In-game cat: <https://www.pexels.com/photo/brown-tabby-kitten-1097288/>
 * Level-finished cat: <https://www.pexels.com/photo/beige-cat-with-gold-colored-crown-1314550/>
@@ -52,7 +60,6 @@
 * Use Comic Sans as a font everywhere?
 
 ### DONE
-
 * Create a Game Activity
 * Add suitable layout to the Game Activity
 * Set a good font size for Game Activity
