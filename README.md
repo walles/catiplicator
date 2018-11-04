@@ -40,6 +40,10 @@
 
 ## TODO Misc
 * Publish on Google Play
+* Update `README.md` with a link to Google Play
+* Ensure we're made for tablets according to Google Play
+* Brighten up the feature graphics and publish it on Google Play
+* Colorize the feature graphics
 * Add meow sound effect when starting a new level
 * Show progress bar during the level
 * Set up CI on pushes, running at least the JUnit tests
