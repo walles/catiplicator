@@ -39,6 +39,10 @@
 * Icon kitten outline: <https://pixabay.com/sv/kattunge-sitter-silhouette-katt-1129027/>
 
 ## TODO Misc
+* Make sure back button in any activity asks user whether to quit the
+  whole thing.
+* Test pressing back button in the "Here's the correct answer, type it
+  here" dialog.
 * Publish on Google Play
 * Add meow sound effect when starting a new level
 * Show progress bar during the level
