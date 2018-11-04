@@ -82,13 +82,8 @@ public class GameActivity extends MusicActivity {
 
     @SuppressLint("SetTextI18n")
     private void showAnswerDialog(Runnable callAfter) {
-        Dialog dialog = new Dialog(this) {
-            @Override
-            public void onBackPressed() {
-                // We don't want the user to be able to close the dialog without typing the correct
-                // answer.
-            }
-        };
+        Dialog dialog = new Dialog(this);
+        dialog.setCancelable(false);  // Require user to type correct answer
         dialog.setContentView(R.layout.dialog_redo_failed);
 
         TextView demoString = dialog.findViewById(R.id.demoString);

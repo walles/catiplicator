@@ -39,8 +39,6 @@
 * Icon kitten outline: <https://pixabay.com/sv/kattunge-sitter-silhouette-katt-1129027/>
 
 ## TODO Misc
-* Don't close "Type correct answer here" dialog if user clicks outside
-  of it.
 * Make sure back button in any activity asks user whether to quit the
   whole thing.
 * Create a Feature Graphics
@@ -100,3 +98,5 @@
 * Add God Rays from the x in the icon
 * Ignore back button presses in the "Here's the correct answer, type it
   here" dialog.
+* Don't close "Type correct answer here" dialog if user clicks outside
+  of it.
