@@ -4,11 +4,10 @@
 * Update `VersionName` and `VersionCode` in `/app/build.gradle`
 * Commit this change
 * `git push`
-* `git tag <new version name>`, do `git tag` for inspiration
-* `git push --tags`
+* `git tag <new version name>`, do `git tag | cat` for inspiration
 * In Android Studio, do *Build* / *Generate Signed APK...*
-* Upload the new APK to [Google
-Play](https://play.google.com/apps/publish)
+* Upload the new APK to [Google Play](https://play.google.com/apps/publish)
+* `git push --tags`
 
 ## Design
 * :white_check_mark: Welcome screen when starting
