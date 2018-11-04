@@ -71,6 +71,7 @@ public class LevelLaunchingActivity extends MusicActivity {
                 v -> {
                     Intent intent = new Intent(LevelLaunchingActivity.this, GameActivity.class);
                     startActivity(intent);
+                    finish();
                 });
     }
 }

@@ -39,8 +39,6 @@
 * Icon kitten outline: <https://pixabay.com/sv/kattunge-sitter-silhouette-katt-1129027/>
 
 ## TODO Misc
-* Make sure back button in any activity asks user whether to quit the
-  whole thing.
 * Create a Feature Graphics
 * Publish on Google Play
 * Add meow sound effect when starting a new level
@@ -100,3 +98,5 @@
   here" dialog.
 * Don't close "Type correct answer here" dialog if user clicks outside
   of it.
+* Back button in the Level-Finished activity should ask user whether to
+  quit the whole thing.

@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
@@ -187,5 +188,16 @@ public class GameActivity extends MusicActivity {
         // This is a problem after having shown the wrong-answer-please-redo dialog.
 
         levelState.usedChallenges.add(challenge);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setCancelable(true)
+                .setTitle("Quit game?")
+                .setMessage("Quit game?")
+                .setPositiveButton("Yes, quit", (dialog, which) -> finish())
+                .setNegativeButton("No, keep playing", (dialog, which) -> dialog.dismiss())
+                .show();
     }
 }

@@ -3,6 +3,7 @@ package com.gmail.walles.johan.catiplicator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NonNls;
@@ -21,6 +22,17 @@ public class LevelFinishedActivity extends MusicActivity {
         intent.putExtra(EXTRA_CORRECT_COUNT, correctCount);
 
         context.startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setCancelable(true)
+                .setTitle(R.string.quit_game_question)
+                .setMessage(R.string.quit_game_question)
+                .setPositiveButton(R.string.yes_quit, (dialog, which) -> finish())
+                .setNegativeButton(R.string.no_keep_playing, (dialog, which) -> dialog.dismiss())
+                .show();
     }
 
     @Override

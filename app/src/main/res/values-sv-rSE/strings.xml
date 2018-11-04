@@ -6,4 +6,7 @@
     <string name="level_n">Nivå %1$d</string>
     <string name="level_n_finished_you_got_m_answers_right">Nivå %1$d avklarad, du fick %2$d rätt!</string>
     <string name="about">Om</string>
+    <string name="quit_game_question">Avsluta spelet?</string>
+    <string name="yes_quit">Ja, avsluta</string>
+    <string name="no_keep_playing">Nej, fortsätt spela</string>
 </resources>
