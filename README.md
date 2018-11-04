@@ -39,7 +39,6 @@
 * Icon kitten outline: <https://pixabay.com/sv/kattunge-sitter-silhouette-katt-1129027/>
 
 ## TODO Misc
-* Set a license
 * Publish on Google Play
 * Add meow sound effect when starting a new level
 * Show progress bar during the level
@@ -101,3 +100,4 @@
 * Back button in the Level-Finished activity should ask user whether to
   quit the whole thing.
 * Create a Feature Graphics
+* Set a license
