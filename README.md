@@ -51,8 +51,6 @@ or [build it from source and install it over USB](https://developer.android.com/
 
 ## TODO Misc
 * Ensure we're made for tablets according to Google Play
-* Brighten up the feature graphics and publish it on Google Play
-* Colorize the feature graphics
 * Add meow sound effect when starting a new level
 * Show progress bar during the level
 * Set up CI on pushes, running at least the JUnit tests
@@ -115,3 +113,4 @@ or [build it from source and install it over USB](https://developer.android.com/
 * Set a license
 * Publish on Google Play
 * Update `README.md` with a link to Google Play
+* Make a less boring feature graphic
