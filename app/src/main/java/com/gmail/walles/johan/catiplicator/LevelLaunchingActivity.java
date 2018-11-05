@@ -18,10 +18,11 @@
 package com.gmail.walles.johan.catiplicator;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 
 import org.jetbrains.annotations.NonNls;
@@ -35,15 +36,26 @@ import timber.log.Timber;
 
 public class LevelLaunchingActivity extends MusicActivity {
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.options_menu, menu);
-        menu.findItem(R.id.about).setOnMenuItemClickListener(
-                item -> {
-                    showAboutDialog();
-                    return true;
-                });
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.credits) {
+            LevelLaunchingActivity.this.showAboutDialog();
+            return true;
+        }
 
+        if (item.getItemId() == R.id.view_source_code) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            @NonNls String uri = "https://github.com/walles/catiplicator?files=1";
+            intent.setData(Uri.parse(uri));
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
         return true;
     }
 
@@ -63,7 +75,7 @@ public class LevelLaunchingActivity extends MusicActivity {
         new AlertDialog.Builder(this)
                 .setMessage(credits)
                 .setCancelable(true)
-                .setTitle(R.string.about)
+                .setTitle(R.string.credits)
                 .setNeutralButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
                 .create()
                 .show();

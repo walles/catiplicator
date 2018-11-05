@@ -22,8 +22,9 @@
     <string name="please_type_it_here">Please type it here:</string>
     <string name="level_n">Level %1$d</string>
     <string name="level_n_finished_you_got_m_answers_right">Level %1$d finished, you got %2$d answers right!</string>
-    <string name="about">About</string>
+    <string name="credits">Credits</string>
     <string name="quit_game_question">Quit game?</string>
     <string name="yes_quit">Yes, quit</string>
     <string name="no_keep_playing">No, keep playing</string>
+    <string name="view_source_code">View source code</string>
 </resources>
